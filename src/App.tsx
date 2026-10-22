@@ -40,8 +40,8 @@ function App() {
               </li>
               <li>
                 <a
-                  aria-disabled="true"
-                  className="inline-flex min-h-11 items-center text-texto-secundario"
+                  href="#como-funciona"
+                  className="inline-flex min-h-11 items-center rounded text-texto-secundario hover:text-destaque focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco"
                 >
                   Como funciona
                 </a>
@@ -669,7 +669,58 @@ function App() {
             </article>
           </div>
         </section>
+        <section
+          id="como-funciona"
+          tabIndex={-1}
+          aria-labelledby="titulo-como-funciona"
+          className="scroll-mt-6 border-y border-divisor py-8 md:py-10"
+        >
+          <h2 id="titulo-como-funciona" className="text-2xl leading-tight font-bold">
+            Sua sessão, em três passos
+          </h2>
+
+          <ol role="list" className="mt-8 grid gap-6 md:grid-cols-3 lg:gap-8">
+            <li>
+              <span aria-hidden="true" className="text-xs font-bold text-destaque">01</span>
+              <h3 className="mt-2 text-base font-bold">Explore o catálogo</h3>
+              <p className="mt-2 text-sm leading-relaxed text-texto-secundario">
+                Busque um filme ou uma temporada.
+              </p>
+            </li>
+
+            <li>
+              <span aria-hidden="true" className="text-xs font-bold text-destaque">02</span>
+              <h3 className="mt-2 text-base font-bold">Confira os detalhes</h3>
+              <p className="mt-2 text-sm leading-relaxed text-texto-secundario">
+                Veja a sinopse e a unidade escolhida.
+              </p>
+            </li>
+
+            <li>
+              <span aria-hidden="true" className="text-xs font-bold text-destaque">03</span>
+              <h3 className="mt-2 text-base font-bold">Simule a locação</h3>
+              <p className="mt-2 text-sm leading-relaxed text-texto-secundario">
+                Receba uma confirmação na página.
+              </p>
+            </li>
+          </ol>
+        </section>
       </main>
+
+      <footer className="mx-auto max-w-[1376px] px-4 py-8 md:px-6 lg:px-12">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-xl font-bold">Cenora</p>
+            <p className="mt-2 text-sm text-texto-secundario">Projeto acadêmico · TCD</p>
+          </div>
+          <a
+            href="#inicio"
+            className="inline-flex min-h-11 w-fit items-center gap-2 rounded text-sm text-texto-secundario hover:text-destaque focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco"
+          >
+            Voltar ao topo <span aria-hidden="true">↑</span>
+          </a>
+        </div>
+      </footer>
     </div>
   )
 }
