@@ -18,8 +18,6 @@ body {
   color: var(--color-texto);
   background-color: var(--color-fundo);
 }
-
-/* Reserva espaço para o cabeçalho ao navegar até uma seção. */
 html {
   scroll-padding-top: 9rem;
 }

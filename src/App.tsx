@@ -32,8 +32,8 @@ function App() {
               </li>
               <li>
                 <a
-                  aria-disabled="true"
-                  className="inline-flex min-h-11 items-center text-texto-secundario"
+                  href="#colecoes"
+                  className="inline-flex min-h-11 items-center rounded text-texto-secundario hover:text-destaque focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco"
                 >
                   Coleções
                 </a>
@@ -80,13 +80,12 @@ function App() {
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-2">
-              <button
-                type="button"
-                disabled
-                className="min-h-11 w-full rounded-md bg-destaque px-6 py-3 text-[15px] font-bold text-fundo disabled:cursor-not-allowed md:w-auto"
+              <a
+                href="#detalhes"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-destaque px-6 py-3 text-[15px] font-bold text-fundo hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco md:w-auto"
               >
                 Conhecer este título
-              </button>
+              </a>
 
               <a
                 href="#catalogo"
@@ -177,15 +176,20 @@ function App() {
 
           <div className="mt-8 grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-3 md:gap-x-5 lg:grid-cols-5 lg:gap-x-6">
             <article aria-labelledby="titulo-interestelar" className="flex min-w-0 flex-col">
-              <img
-                src="/imagens/catalogo/interestelar.webp"
-                alt="Cartaz de Interestelar."
-                width="600"
-                height="900"
-                loading="lazy"
-                decoding="async"
-                className="aspect-[2/3] w-full rounded-md bg-superficie object-cover"
-              />
+              <div className="relative overflow-hidden rounded-md">
+                <img
+                  src="/imagens/catalogo/interestelar.webp"
+                  alt="Cartaz de Interestelar."
+                  width="600"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[2/3] w-full bg-superficie object-cover"
+                />
+                <span className="absolute inset-x-0 bottom-0 bg-destaque px-3 py-2 text-xs font-bold uppercase text-fundo">
+                  Em detalhes
+                </span>
+              </div>
               <div className="flex flex-1 flex-col pt-3">
                 <p className="text-xs font-bold uppercase tracking-wide text-destaque">
                   Filme
@@ -197,14 +201,13 @@ function App() {
                   2014 · Ficção científica
                 </p>
                 <div className="mt-auto pt-4">
-                  <button
-                    type="button"
-                    disabled
+                  <a
+                    href="#detalhes"
                     aria-label="Ver detalhes de Interestelar"
-                    className="min-h-11 w-full rounded-md border border-contorno bg-campo px-2 py-2 text-sm font-semibold text-texto disabled:cursor-not-allowed"
+                    className="inline-flex min-h-11 w-full items-center justify-center rounded-md border border-contorno bg-campo px-2 py-2 text-sm font-semibold text-texto hover:border-destaque hover:text-destaque focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco"
                   >
                     Ver detalhes
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -506,6 +509,164 @@ function App() {
               </div>
             </article>
 
+          </div>
+        </section>
+        <section
+          id="detalhes"
+          tabIndex={-1}
+          aria-labelledby="titulo-detalhes"
+          className="scroll-mt-6 py-8 md:py-12"
+        >
+          <p className="text-xs font-bold uppercase tracking-wide text-destaque">
+            Sua próxima escolha
+          </p>
+          <h2 id="titulo-detalhes" className="mt-3 text-2xl leading-tight font-bold md:text-[32px]">
+            Detalhes do título
+          </h2>
+
+          <article
+            aria-labelledby="nome-filme-detalhes"
+            className="mt-6 grid grid-cols-12 items-start gap-4 rounded-lg bg-campo p-5 md:grid-rows-[auto_1fr] md:gap-x-6 md:gap-y-0 md:p-6 lg:gap-x-8 lg:p-7"
+          >
+            <img
+              src="/imagens/catalogo/interestelar.webp"
+              alt="Cartaz de Interestelar."
+              width="600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              className="col-span-5 aspect-[2/3] w-full rounded bg-superficie object-cover md:col-span-3 md:row-span-2"
+            />
+
+            <div className="col-span-7 flex min-w-0 flex-col items-start gap-3 md:col-span-9 md:flex-row md:items-center md:justify-between">
+              <p className="text-xs font-bold uppercase tracking-wide text-destaque">
+                Filme <span className="hidden md:inline">/ </span>
+                <span className="mt-2 block text-sm normal-case tracking-normal text-texto md:mt-0 md:inline md:text-xs md:uppercase md:tracking-wide md:text-destaque">
+                  Obra completa
+                </span>
+              </p>
+            </div>
+
+            <div className="col-span-12 min-w-0 md:col-span-9 md:col-start-4 md:mt-3">
+              <h3 id="nome-filme-detalhes" className="text-xl leading-tight font-bold md:text-2xl">
+                Interestelar
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-texto-secundario">
+                2014 · Ficção científica · 2h 49min
+              </p>
+              <p className="mt-4 max-w-prose text-sm leading-relaxed text-texto-secundario">
+                Com a sobrevivência na Terra ameaçada, Cooper deixa os filhos para
+                liderar uma missão espacial em busca de um novo lar para a humanidade.
+              </p>
+
+              <div className="mt-6 border-t border-divisor pt-5">
+                <p className="text-2xl font-bold" aria-label="Preço ainda não definido">
+                  R$ —,—
+                </p>
+                <button
+                  type="button"
+                  disabled
+                  className="mt-4 min-h-11 w-full rounded-md bg-destaque px-6 py-3 text-sm font-bold text-fundo disabled:cursor-not-allowed md:max-w-[280px]"
+                >
+                  Simular locação
+                </button>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section
+          id="colecoes"
+          tabIndex={-1}
+          aria-labelledby="titulo-colecoes"
+          className="scroll-mt-6 py-8 md:py-12"
+        >
+          <p className="text-xs font-bold uppercase tracking-wicde text-destaque">Curadoria</p>
+          <h2 id="titulo-colecoes" className="mt-3 text-2xl leading-tight font-bold md:text-[32px]">
+            Um caminho para escolher
+          </h2>
+          <p className="mt-3 text-sm text-texto-secundario">
+            Três coleções para explorar o catálogo.
+          </p>
+
+          <div className="mt-8 grid gap-8 md:gap-6 lg:grid-cols-3">
+            <article
+              aria-labelledby="colecao-suspense"
+              className="grid min-w-0 gap-4 md:grid-cols-3 md:gap-6 lg:flex lg:flex-col lg:gap-4"
+            >
+              <img
+                src="/imagens/colecoes/uma-noite-de-suspense.webp"
+                alt="Personagens de Ruptura em um ambiente escuro."
+                width="960"
+                height="540"
+                loading="lazy"
+                decoding="async"
+                className="aspect-video w-full rounded-md bg-superficie object-cover"
+              />
+              <div className="flex min-w-0 flex-col md:col-span-2 lg:flex-1">
+                <h3 id="colecao-suspense" className="text-lg leading-snug font-bold">
+                  Uma noite de suspense
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-texto-secundario">
+                  Histórias que mantêm a curiosidade até a última cena.
+                </p>
+                <p className="mt-auto pt-5 text-xs leading-relaxed text-destaque">
+                  Critério: suspense
+                </p>
+              </div>
+            </article>
+
+            <article
+              aria-labelledby="colecao-mundos"
+              className="grid min-w-0 gap-4 md:grid-cols-3 md:gap-6 lg:flex lg:flex-col lg:gap-4"
+            >
+              <img
+                src="/imagens/colecoes/mundos-para-explorar.webp"
+                alt="Astronauta de Interestelar explorando uma paisagem gelada."
+                width="960"
+                height="540"
+                loading="lazy"
+                decoding="async"
+                className="aspect-video w-full rounded-md bg-superficie object-cover"
+              />
+              <div className="flex min-w-0 flex-col md:col-span-2 lg:flex-1">
+                <h3 id="colecao-mundos" className="text-lg leading-snug font-bold">
+                  Mundos para explorar
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-texto-secundario">
+                  Outras realidades para uma sessão de descobertas.
+                </p>
+                <p className="mt-auto pt-5 text-xs leading-relaxed text-destaque">
+                  Critério: ficção e fantasia
+                </p>
+              </div>
+            </article>
+
+            <article
+              aria-labelledby="colecao-capitulos"
+              className="grid min-w-0 gap-4 md:grid-cols-3 md:gap-6 lg:flex lg:flex-col lg:gap-4"
+            >
+              <img
+                src="/imagens/colecoes/historias-em-capitulos.webp"
+                alt="Grupo de personagens de Stranger Things em uma estrada sob um céu avermelhado."
+                width="960"
+                height="540"
+                loading="lazy"
+                decoding="async"
+                className="aspect-video w-full rounded-md bg-superficie object-cover"
+              />
+              <div className="flex min-w-0 flex-col md:col-span-2 lg:flex-1">
+                <h3 id="colecao-capitulos" className="text-lg leading-snug font-bold">
+                  Histórias em capítulos
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-texto-secundario">
+                  Uma temporada para acompanhar a próxima história.
+                </p>
+                <p className="mt-auto pt-5 text-xs leading-relaxed text-destaque">
+                  Critério: séries
+                </p>
+              </div>
+            </article>
           </div>
         </section>
       </main>
