@@ -4,6 +4,8 @@
   --font-sans: "Segoe UI", Arial, sans-serif;
   --color-fundo: #10151b;
   --color-superficie: #24313e;
+  --color-campo: #1a232d;
+  --color-contorno: #66788a;
   --color-texto: #f4f1ea;
   --color-texto-secundario: #b4c0cc;
   --color-destaque: #d8f36a;
@@ -15,4 +17,15 @@ body {
   font-family: var(--font-sans);
   color: var(--color-texto);
   background-color: var(--color-fundo);
+}
+
+/* Reserva espaço para o cabeçalho ao navegar até uma seção. */
+html {
+  scroll-padding-top: 9rem;
+}
+
+@media (min-width: 48rem) {
+  html {
+    scroll-padding-top: 6.5rem;
+  }
 }
