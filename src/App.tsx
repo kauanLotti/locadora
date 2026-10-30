@@ -18,7 +18,7 @@ function App() {
         tabIndex={-1}
         className="page-container"
       >
-        <section
+         <section
           aria-labelledby="titulo-destaque"
           className="hero"
         >
@@ -519,7 +519,7 @@ function App() {
               </p>
 
               <div className="rental-info">
-                <p className="rental-price" aria-label="Preço ainda não definido">
+                <p className="rental-price" aria-label="">
                   R$ —,—
                 </p>
                 <button

@@ -11,4 +11,6 @@ Kauan Lotti
 Entrega dos WireFrames mobile, tablet e desktop.
 
 
-## Fase 2 — em construção
+## Fase 2
+Estrutura inicial do codigo em CSS e HTML
+
