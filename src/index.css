@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI", Arial, sans-serif;
+  --color-fundo: #10151b;
+  --color-superficie: #24313e;
+  --color-campo: #1a232d;
+  --color-contorno: #66788a;
+  --color-texto: #f4f1ea;
+  --color-texto-secundario: #b4c0cc;
+  --color-destaque: #d8f36a;
+  --color-foco: #a8b8ff;
+  --color-divisor: #344454;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-texto);
+  background-color: var(--color-fundo);
+}
+html {
+  scroll-padding-top: 9rem;
+}
+
+@media (min-width: 48rem) {
+  html {
+    scroll-padding-top: 6.5rem;
+  }
+}
+
+@layer components {
+  .page {
+    @apply min-h-screen;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-30 focus:rounded focus:bg-destaque focus:px-4 focus:py-3 focus:text-fundo;
+  }
+
+  .page-container {
+    @apply mx-auto max-w-[1376px] px-4 md:px-6 lg:px-12;
+  }
+
+  .hero {
+    @apply grid gap-8 py-8 md:grid-cols-12 md:items-start md:gap-5 md:py-12 lg:gap-6;
+  }
+
+  .hero-content {
+    @apply md:col-span-5;
+  }
+
+  .section-label {
+    @apply text-xs font-bold uppercase tracking-wide text-destaque;
+  }
+
+  .hero-title {
+    @apply mt-6 text-[32px] leading-[1.15] font-bold md:text-4xl lg:text-5xl;
+  }
+
+  .hero-movie-title {
+    @apply mt-6 text-xl font-bold;
+  }
+
+  .muted-caption {
+    @apply mt-2 text-sm text-texto-secundario;
+  }
+
+  .hero-actions {
+    @apply mt-8 flex flex-col items-start gap-2;
+  }
+
+  .primary-link {
+    @apply inline-flex min-h-11 w-full items-center justify-center rounded-md bg-destaque px-6 py-3 text-[15px] font-bold text-fundo hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco md:w-auto;
+  }
+
+  .catalog-link {
+    @apply inline-flex min-h-11 items-center gap-2 rounded text-[15px] text-texto-secundario hover:text-destaque focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco;
+  }
+
+  .hero-artwork {
+    @apply relative overflow-hidden rounded bg-superficie md:col-span-7;
+  }
+
+  .hero-image {
+    @apply block h-auto w-full;
+  }
+
+  .content-section {
+    @apply scroll-mt-6 py-8 md:py-12;
+  }
+
+  .catalog-heading {
+    @apply mt-3 flex flex-col gap-3;
+  }
+
+  .catalog-title {
+    @apply text-2xl leading-tight font-bold md:text-[32px];
+  }
+
+  .section-description {
+    @apply text-sm text-texto-secundario;
+  }
+
+  .catalog-filters {
+    @apply mt-6 grid grid-cols-2 gap-3 md:grid-cols-12 md:gap-5 lg:gap-6;
+  }
+
+  .search-field {
+    @apply col-span-2 md:col-span-6;
+  }
+
+  .field-label {
+    @apply mb-2 block text-sm font-semibold;
+  }
+
+  .search-input {
+    @apply min-h-11 w-full min-w-0 rounded-md border border-contorno bg-campo px-3 py-2 text-sm text-texto placeholder:text-texto-secundario disabled:cursor-not-allowed;
+  }
+
+  .filter-field {
+    @apply min-w-0 md:col-span-3;
+  }
+
+  .filter-select {
+    @apply min-h-11 w-full min-w-0 rounded-md border border-contorno bg-campo px-3 py-2 text-sm text-texto disabled:cursor-not-allowed;
+  }
+
+  .movie-grid {
+    @apply mt-8 grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-3 md:gap-x-5 lg:grid-cols-5 lg:gap-x-6;
+  }
+
+  .movie-card {
+    @apply flex min-w-0 flex-col;
+  }
+
+  .featured-poster-frame {
+    @apply relative overflow-hidden rounded-md;
+  }
+
+  .featured-poster {
+    @apply aspect-[2/3] w-full bg-superficie object-cover;
+  }
+
+  .movie-content {
+    @apply flex flex-1 flex-col pt-3;
+  }
+
+  .movie-title {
+    @apply mt-2 text-base leading-snug font-bold;
+  }
+
+  .muted-description {
+    @apply mt-2 text-sm leading-relaxed text-texto-secundario;
+  }
+
+  .movie-actions {
+    @apply mt-auto pt-4;
+  }
+
+  .details-link {
+    @apply inline-flex min-h-11 w-full items-center justify-center rounded-md border border-contorno bg-campo px-2 py-2 text-sm font-semibold text-texto hover:border-destaque hover:text-destaque focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco;
+  }
+
+  .movie-poster {
+    @apply aspect-[2/3] w-full rounded-md bg-superficie object-cover;
+  }
+
+  .details-button {
+    @apply min-h-11 w-full rounded-md border border-contorno bg-campo px-2 py-2 text-sm font-semibold text-texto disabled:cursor-not-allowed;
+  }
+
+  .section-title {
+    @apply mt-3 text-2xl leading-tight font-bold md:text-[32px];
+  }
+
+  .details-card {
+    @apply mt-6 grid grid-cols-12 items-start gap-4 rounded-lg bg-campo p-5 md:grid-rows-[auto_1fr] md:gap-x-6 md:gap-y-0 md:p-6 lg:gap-x-8 lg:p-7;
+  }
+
+  .details-poster {
+    @apply col-span-5 aspect-[2/3] w-full rounded bg-superficie object-cover md:col-span-3 md:row-span-2;
+  }
+
+  .details-heading {
+    @apply col-span-7 flex min-w-0 flex-col items-start gap-3 md:col-span-9 md:flex-row md:items-center md:justify-between;
+  }
+
+  .unit-separator {
+    @apply hidden md:inline;
+  }
+
+  .unit-label {
+    @apply mt-2 block text-sm normal-case tracking-normal text-texto md:mt-0 md:inline md:text-xs md:uppercase md:tracking-wide md:text-destaque;
+  }
+
+  .details-content {
+    @apply col-span-12 min-w-0 md:col-span-9 md:col-start-4 md:mt-3;
+  }
+
+  .details-title {
+    @apply text-xl leading-tight font-bold md:text-2xl;
+  }
+
+  .details-meta {
+    @apply mt-3 text-sm leading-relaxed text-texto-secundario;
+  }
+
+  .details-synopsis {
+    @apply mt-4 max-w-prose text-sm leading-relaxed text-texto-secundario;
+  }
+
+  .rental-info {
+    @apply mt-6 border-t border-divisor pt-5;
+  }
+
+  .rental-price {
+    @apply text-2xl font-bold;
+  }
+
+  .rental-button {
+    @apply mt-4 min-h-11 w-full rounded-md bg-destaque px-6 py-3 text-sm font-bold text-fundo disabled:cursor-not-allowed md:max-w-[280px];
+  }
+
+  .section-intro {
+    @apply mt-3 text-sm text-texto-secundario;
+  }
+
+  .collection-grid {
+    @apply mt-8 grid gap-8 md:gap-6 lg:grid-cols-3;
+  }
+
+  .collection-card {
+    @apply grid min-w-0 gap-4 md:grid-cols-3 md:gap-6 lg:flex lg:flex-col lg:gap-4;
+  }
+
+  .collection-image {
+    @apply aspect-video w-full rounded-md bg-superficie object-cover;
+  }
+
+  .collection-content {
+    @apply flex min-w-0 flex-col md:col-span-2 lg:flex-1;
+  }
+
+  .collection-title {
+    @apply text-lg leading-snug font-bold;
+  }
+
+  .collection-criterion {
+    @apply mt-auto pt-5 text-xs leading-relaxed text-destaque;
+  }
+
+  .how-it-works {
+    @apply scroll-mt-6 border-y border-divisor py-8 md:py-10;
+  }
+
+  .steps-title {
+    @apply text-2xl leading-tight font-bold;
+  }
+
+  .steps-list {
+    @apply mt-8 grid gap-6 md:grid-cols-3 lg:gap-8;
+  }
+
+  .step-number {
+    @apply text-xs font-bold text-destaque;
+  }
+
+  .step-title {
+    @apply mt-2 text-base font-bold;
+  }
+
+  .site-footer {
+    @apply mx-auto max-w-[1376px] px-4 py-8 md:px-6 lg:px-12;
+  }
+
+  .footer-content {
+    @apply flex flex-col gap-4 md:flex-row md:items-center md:justify-between;
+  }
+
+  .footer-brand {
+    @apply text-xl font-bold;
+  }
+
+  .back-to-top {
+    @apply inline-flex min-h-11 w-fit items-center gap-2 rounded text-sm text-texto-secundario hover:text-destaque focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco;
+  }
+
+  .site-header {
+    @apply sticky top-0 z-20 bg-fundo px-4 md:px-6 lg:px-12;
+  }
+
+  .header-content {
+    @apply mx-auto flex max-w-[1280px] flex-col gap-2 border-b border-divisor py-4 md:flex-row md:items-center md:justify-between md:py-5;
+  }
+
+  .brand {
+    @apply flex min-h-11 w-fit items-center gap-3 rounded text-[26px] font-bold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco;
+  }
+
+  .brand-mark {
+    @apply h-7 w-2 rounded-sm bg-destaque;
+  }
+
+  .navigation-list {
+    @apply flex items-center justify-between gap-4 text-[15px] md:gap-8;
+  }
+
+  .navigation-link {
+    @apply inline-flex min-h-11 items-center rounded text-texto-secundario hover:text-destaque focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco;
+  }
+}

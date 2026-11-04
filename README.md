@@ -1,5 +1,4 @@
 # locadora
-
 Trabalho de Conclusão da Disciplina de Desenvolvimento em Ambiente Web.
 
 
@@ -10,3 +9,8 @@ Kauan Lotti
 
 ## Fase 1
 Entrega dos WireFrames mobile, tablet e desktop.
+
+
+## Fase 2
+Estrutura inicial do codigo em CSS e HTML
+
