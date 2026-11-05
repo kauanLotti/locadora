@@ -5,11 +5,21 @@ type CatalogProps = {
   titles: Title[]
   activeType: string
   onTypeChange: (type: string) => void
+  searchText: string
+  onSearchChange: (text: string) => void
 }
 
-export function Catalog({ titles, activeType, onTypeChange }: CatalogProps) {
+export function Catalog({
+  titles,
+  activeType,
+  onTypeChange,
+  searchText,
+  onSearchChange,
+}: CatalogProps) {
+  const searchTerm = searchText.trim().toLowerCase()
   const filteredTitles = titles.filter((title) => (
-    activeType === 'todos' || title.type === activeType
+    (activeType === 'todos' || title.type === activeType)
+    && title.name.toLowerCase().includes(searchTerm)
   ))
 
   return (
@@ -25,7 +35,7 @@ export function Catalog({ titles, activeType, onTypeChange }: CatalogProps) {
           Encontre sua próxima sessão
         </h2>
         <p className="section-description" role="status">
-          {activeType === 'todos'
+          {activeType === 'todos' && searchTerm === ''
             ? `${titles.length} títulos · filmes e temporadas`
             : `${filteredTitles.length} de ${titles.length} títulos`}
         </p>
@@ -40,7 +50,8 @@ export function Catalog({ titles, activeType, onTypeChange }: CatalogProps) {
             id="busca-titulo"
             type="search"
             placeholder="Digite um filme ou série"
-            disabled
+            value={searchText}
+            onChange={(event) => onSearchChange(event.target.value)}
             className="search-input"
           />
         </div>
@@ -79,11 +90,17 @@ export function Catalog({ titles, activeType, onTypeChange }: CatalogProps) {
         </div>
       </div>
 
-      <div className="movie-grid">
-        {filteredTitles.map((title) => (
-          <TitleCard key={title.id} title={title} />
-        ))}
-      </div>
+      {filteredTitles.length > 0 ? (
+        <div className="movie-grid">
+          {filteredTitles.map((title) => (
+            <TitleCard key={title.id} title={title} />
+          ))}
+        </div>
+      ) : (
+        <p className="empty-results">
+          Nenhum título encontrado. Tente outro nome.
+        </p>
+      )}
     </section>
   )
 }

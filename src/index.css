@@ -114,7 +114,7 @@ html {
   }
 
   .search-input {
-    @apply min-h-11 w-full min-w-0 rounded-md border border-contorno bg-campo px-3 py-2 text-sm text-texto placeholder:text-texto-secundario disabled:cursor-not-allowed;
+    @apply min-h-11 w-full min-w-0 rounded-md border border-contorno bg-campo px-3 py-2 text-sm text-texto placeholder:text-texto-secundario focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foco;
   }
 
   .filter-field {
@@ -127,6 +127,10 @@ html {
 
   .movie-grid {
     @apply mt-8 grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-3 md:gap-x-5 lg:grid-cols-5 lg:gap-x-6;
+  }
+
+  .empty-results {
+    @apply mt-8 rounded-md border border-divisor bg-campo p-6 text-sm leading-relaxed text-texto-secundario;
   }
 
   .movie-card {

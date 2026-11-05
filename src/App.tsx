@@ -11,6 +11,7 @@ import { collections } from './data/collections'
 
 function App() {
   const [activeType, setActiveType] = useState('todos')
+  const [searchText, setSearchText] = useState('')
 
   return (
     <div id="inicio" className="page">
@@ -26,6 +27,8 @@ function App() {
           titles={titles}
           activeType={activeType}
           onTypeChange={setActiveType}
+          searchText={searchText}
+          onSearchChange={setSearchText}
         />
         <TitleDetails />
         <Collections collections={collections} />
