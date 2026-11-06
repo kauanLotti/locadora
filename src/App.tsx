@@ -11,6 +11,7 @@ import { collections } from './data/collections'
 
 function App() {
   const [activeType, setActiveType] = useState('todos')
+  const [activeGenre, setActiveGenre] = useState('todos')
   const [searchText, setSearchText] = useState('')
 
   return (
@@ -27,6 +28,8 @@ function App() {
           titles={titles}
           activeType={activeType}
           onTypeChange={setActiveType}
+          activeGenre={activeGenre}
+          onGenreChange={setActiveGenre}
           searchText={searchText}
           onSearchChange={setSearchText}
         />

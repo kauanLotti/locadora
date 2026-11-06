@@ -5,6 +5,8 @@ type CatalogProps = {
   titles: Title[]
   activeType: string
   onTypeChange: (type: string) => void
+  activeGenre: string
+  onGenreChange: (genre: string) => void
   searchText: string
   onSearchChange: (text: string) => void
 }
@@ -13,12 +15,15 @@ export function Catalog({
   titles,
   activeType,
   onTypeChange,
+  activeGenre,
+  onGenreChange,
   searchText,
   onSearchChange,
 }: CatalogProps) {
   const searchTerm = searchText.trim().toLowerCase()
   const filteredTitles = titles.filter((title) => (
     (activeType === 'todos' || title.type === activeType)
+    && (activeGenre === 'todos' || title.genre === activeGenre)
     && title.name.toLowerCase().includes(searchTerm)
   ))
 
@@ -35,7 +40,7 @@ export function Catalog({
           Encontre sua próxima sessão
         </h2>
         <p className="section-description" role="status">
-          {activeType === 'todos' && searchTerm === ''
+          {activeType === 'todos' && activeGenre === 'todos' && searchTerm === ''
             ? `${titles.length} títulos · filmes e temporadas`
             : `${filteredTitles.length} de ${titles.length} títulos`}
         </p>
@@ -76,16 +81,16 @@ export function Catalog({
           </label>
           <select
             id="filtro-genero"
-            defaultValue="todos"
-            disabled
+            value={activeGenre}
+            onChange={(event) => onGenreChange(event.target.value)}
             className="filter-select"
           >
             <option value="todos">Todos</option>
-            <option value="animacao">Animação</option>
-            <option value="drama">Drama</option>
-            <option value="ficcao-cientifica">Ficção científica</option>
-            <option value="misterio">Mistério</option>
-            <option value="suspense">Suspense</option>
+            <option value="Animação">Animação</option>
+            <option value="Drama">Drama</option>
+            <option value="Ficção científica">Ficção científica</option>
+            <option value="Mistério">Mistério</option>
+            <option value="Suspense">Suspense</option>
           </select>
         </div>
       </div>
