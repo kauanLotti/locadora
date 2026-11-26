@@ -37,3 +37,25 @@ A busca funciona junto com os filtros por tipo e gênero. Por exemplo, seleciona
 
 ## Fase 4 — Dados externos
 
+**Branch:** `fase-4-json`
+
+O catálogo é carregado da API do Mockaroo com `fetch`, chamado pelo `useEffect` do hook `useTitle`. O serviço `TitleService` concentra a consulta, verifica a resposta e converte ano e temporada em números. Campos opcionais vazios são convertidos em `undefined`.
+
+A organização segue o Cardápio Digital React, com tipo, serviço e hook em `src/cases/titles/`. O vetor local de títulos foi substituído pela API. As três coleções continuam locais, e a busca por título e os filtros por tipo e gênero permanecem funcionando em conjunto.
+
+Durante a consulta, o catálogo exibe uma mensagem de carregamento. Se houver falha, apresenta uma mensagem de erro com orientação para tentar novamente. A ausência de títulos na API e uma busca sem resultados têm mensagens distintas.
+
+### Como executar
+
+```bash
+npm install
+npm run dev
+```
+
+Para verificar o projeto:
+
+```bash
+npm run lint
+npm run build
+```
+
