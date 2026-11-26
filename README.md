@@ -34,3 +34,6 @@ Nesta fase, as duas listagens utilizam dados locais declarados em `src/data/titl
 O campo de busca é controlado por `useState`, com `value` e `onChange`, e filtra os títulos em tempo real. Aceita trechos do nome, ignora diferenças entre maiúsculas e minúsculas e desconsidera espaços no início e no fim do texto.
 
 A busca funciona junto com os filtros por tipo e gênero. Por exemplo, selecionar **Séries** e **Ficção científica** apresenta Dark e Stranger Things; digitar **dark** mantém apenas Dark. Ao apagar o texto, os dois títulos voltam a aparecer, preservando os filtros selecionados.
+
+## Fase 4 — Dados externos
+

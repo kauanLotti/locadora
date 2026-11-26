@@ -6,10 +6,11 @@ import { Catalog } from './components/catalog'
 import { TitleDetails } from './components/titleDetails'
 import { Collections } from './components/collections'
 import { HowItWorks } from './components/howItWorks'
-import { titles } from './data/titles'
+import { useTitle } from './cases/titles/hooks/use-title'
 import { collections } from './data/collections'
 
 function App() {
+  const { titles, loading, error } = useTitle()
   const [activeType, setActiveType] = useState('todos')
   const [activeGenre, setActiveGenre] = useState('todos')
   const [searchText, setSearchText] = useState('')
@@ -26,6 +27,8 @@ function App() {
         <Hero />
         <Catalog
           titles={titles}
+          loading={loading}
+          error={error}
           activeType={activeType}
           onTypeChange={setActiveType}
           activeGenre={activeGenre}

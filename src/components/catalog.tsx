@@ -1,8 +1,10 @@
-import type { Title } from '../data/titles'
+import type { Title } from '../cases/titles/dtos/title'
 import { TitleCard } from './titleCard'
 
 type CatalogProps = {
   titles: Title[]
+  loading: boolean
+  error: string | null
   activeType: string
   onTypeChange: (type: string) => void
   activeGenre: string
@@ -13,6 +15,8 @@ type CatalogProps = {
 
 export function Catalog({
   titles,
+  loading,
+  error,
   activeType,
   onTypeChange,
   activeGenre,
@@ -39,11 +43,13 @@ export function Catalog({
         <h2 id="titulo-catalogo" className="catalog-title">
           Encontre sua próxima sessão
         </h2>
-        <p className="section-description" role="status">
-          {activeType === 'todos' && activeGenre === 'todos' && searchTerm === ''
-            ? `${titles.length} títulos · filmes e temporadas`
-            : `${filteredTitles.length} de ${titles.length} títulos`}
-        </p>
+        {!loading && !error && (
+          <p className="section-description" role="status">
+            {activeType === 'todos' && activeGenre === 'todos' && searchTerm === ''
+              ? `${titles.length} títulos · filmes e temporadas`
+              : `${filteredTitles.length} de ${titles.length} títulos`}
+          </p>
+        )}
       </div>
 
       <div className="catalog-filters">
@@ -95,7 +101,13 @@ export function Catalog({
         </div>
       </div>
 
-      {filteredTitles.length > 0 ? (
+      {loading ? (
+        <p className="catalog-message" role="status">Carregando catálogo...</p>
+      ) : error ? (
+        <p className="catalog-message catalog-error" role="alert">{error}</p>
+      ) : titles.length === 0 ? (
+        <p className="empty-results">Nenhum título disponível no momento.</p>
+      ) : filteredTitles.length > 0 ? (
         <div className="movie-grid">
           {filteredTitles.map((title) => (
             <TitleCard key={title.id} title={title} />
