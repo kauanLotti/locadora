@@ -129,8 +129,13 @@ html {
     @apply mt-8 grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-3 md:gap-x-5 lg:grid-cols-5 lg:gap-x-6;
   }
 
+  .catalog-message,
   .empty-results {
     @apply mt-8 rounded-md border border-divisor bg-campo p-6 text-sm leading-relaxed text-texto-secundario;
+  }
+
+  .catalog-error {
+    @apply border-red-300 text-red-200;
   }
 
   .movie-card {

@@ -1,4 +1,4 @@
-import type { Title } from '../data/titles'
+import type { Title } from '../cases/titles/dtos/title'
 
 type TitleCardProps = {
   title: Title
